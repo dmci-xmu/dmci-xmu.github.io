@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<!-- <title>Bioinformatics And Health AI （BIHAI）</title> -->
+		<title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DMCI@XMU</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/publication.css" />
+	</head>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html"><img src="images/title.png"></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="People.html">People</a></li>
+								<li ><a href="News.html">News</a></li>
+								<li class="current"><a href="Publication.html">Publication</a></li>
+								<li><a href="Research.html">Research</a></li>
+								<li><a href="Openings.html">Openings</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main" style="padding-bottom:2em ">
+					<div class="container">
+						<div class="row">
+								<!-- Content -->
+									<article class="box post box-pub" style="width: 100%">
+								<div class = 'line'>
+										<p><strong>学术论文</strong> Papers(更新于2024年03月04日)</p>
+								</div>
+										<!-- <header>
+											<a href="Publication.html">论文列表</a>
+											<hr/>
+										</header> -->
+										<section class = "paper-section" style="margin-bottom: 0em">
+											<ppt :paperinformation="paperInformation"></ppt>
+										</section>
+
+										<header>
+											<h3 style="margin-top: 20px;">More Papers</h3>
+											<hr/>
+										</header>
+										<ul class = "more-list">
+											<li><span><a href="https://scholar.google.com.hk/citations?user=FJKptroAAAAJ&hl=zh-CN&oi=ao" target="_blank">刘向荣老师</a></span></li>
+										</ul>
+									</section>
+								</article>
+							</div>
+						</div>
+					</section>
+				</div>
+				<!-- Footer -->
+				<section id="footer">
+					<div id="footer_copy">
+						<div class="container"><hr/>
+						<div>
+							<p class="text-center">
+								<a href="https://informatics.xmu.edu.cn/" target="_blank">Department of Computer Science and Technology | Xiamen University</a>
+							</p>
+						</div>
+						<div>
+							<p class="text-center">Yihaijiali Building, Xiamen University, Xiamen, China, 361102<br />Copyright © DMCI@XMU Group @ Xiamen University. Adapted from HTML5 UP</p>
+						</div>
+					</div>
+				</section>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script>
+			let paper_template = {
+				props: ['paperinformation'],
+				template:`
+					<div>
+						<div class="paper_year" v-for="(item,index) in  paperinformation" :key="index">
+							<header>
+								<h3 style="margin-top: 20px; color: red">Papers in {{index}}</h3>
+								<h3 style="margin-top: 20px;"></h3>
+							</header>
+							<div class="paper-block" v-for="paper in item">
+								<div class="paper-left">
+									<a :href="paper.image_target" target="_blank">
+										<img :src="paper.image_src">
+									</a>
+								</div>
+								<div class="paper-right">
+									<ul style="list-style:none;">
+										<li>
+											<p>{{paper.paper_authors}}
+												<br>
+												<strong>{{paper.paper_title}}</strong>
+												<a :href="paper.pdf_download" target="_blank" v-if="paper.pdf_download!=''">[pdf]</a>
+												<a :href="paper.code_download" target="_blank" v-if="paper.code_download!=''">[code]</a>
+												<br>
+												<i>{{paper.paper_publiation}}.</i>
+											</p>
+											<pre xml:space="preserve" style="display: none;">@inproceedings{PAMI:&nbsp;2021, Author={Xiawu&nbsp;Zheng,&nbsp;Yuhang&nbsp;Chen,Qiang&nbsp;Wang,&nbsp;Rongrong&nbsp;Ji*,&nbsp;Baochang&nbsp;Zhang,&nbsp;Jie&nbsp;Chen,&nbsp;Yonghong&nbsp;Tian,&nbsp;Qixiang&nbsp;Ye.}, Title={MIGO-NAS:&nbsp;Towards&nbsp;Fast&nbsp;and&nbsp;Generalizable&nbsp;Neural&nbsp;Architecture&nbsp;Search.},Booktitle={IEEE&nbsp;Transactions&nbsp;on&nbsp;Pattern&nbsp;Analysis&nbsp;and&nbsp;Machine&nbsp;Intelligence},Year={2021},&nbsp;Accept}</pre>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				`,
+				data: function (){
+					return{
+
+					}
+				}
+			}
+			var app = new Vue({
+				el: '#page-wrapper',
+				data:{
+					paperInformation:{
+						'2024':[
+							{
+								image_target:'https://www.sciencedirect.com/science/article/pii/S0010482523013185?via%3Dihub',
+								image_src:'images/papers/2024/moasl.jpg',
+								paper_authors: 'Likun Jiang, Susu Qu, Zhengqiu Yu, Jianmin Wang, Xiangrong Liu',
+								paper_title: 'MOASL: Predicting drug mechanism of actions through similarity learning with transcriptomic signature',
+								pdf_download:'https://www.sciencedirect.com/science/article/pii/S0010482523013185/pdfft?md5=bcbadd6e819f7cd0659a09dd82d0dfdd&pid=1-s2.0-S0010482523013185-main.pdf',
+								code_download: '',
+								paper_publiation: 'Computers in Biology and Medicine'
+							},
+						],
+						'2023':[
+							{
+								image_target:'https://academic.oup.com/bib/article/24/2/bbac623/7039649',
+								image_src:'images/papers/2023/msgcl.jpg',
+								paper_authors: 'Xinru Ruan, Changzhi Jiang, Peixuan Lin, Yuan Lin, Juan Liu, Shaohui Huang, Xiangrong Liu',
+								paper_title: 'MSGCL: inferring miRNA–disease associations based on multi-view self-supervised graph structure contrastive learning',
+								pdf_download:'https://academic.oup.com/bib/article-pdf/24/2/bbac623/49559955/bbac623.pdf',
+								code_download: '',
+								paper_publiation: 'Briefings in Bioinformatics'
+							},
+							{
+								image_target:'https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011597',
+								image_src:'images/papers/2023/a_general.png',
+								paper_authors: 'Shuting Jin, Yue Hong, Li Zeng, Yinghui Jiang, Yuan Lin, Leyi Wei, Zhuohang Yu, Xiangxiang Zeng, Xiangrong Liu',
+								paper_title: 'A general hypergraph learning algorithm for drug multi-task predictions in micro-to-macro biomedical networks',
+								pdf_download:'https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011597&type=printable',
+								code_download: '',
+								paper_publiation: 'PLOS COMPUTATIONAL BIOLOGY'
+							},
+							{
+								image_target:'https://ieeexplore.ieee.org/document/10275024',
+								image_src:'images/papers/2023/bioactive_peptide.jpg',
+								paper_authors: 'Likun Jiang; Nan Sun; Yue Zhang; Xinyu Yu; Xiangrong Liu',
+								paper_title: 'Bioactive Peptide Recognition Based on NLP Pre-Train Algorithm',
+								pdf_download:'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10275024',
+								code_download: '',
+								paper_publiation: 'IEEE/ACM TRANSACTIONS ON COMPUTATIONAL BIOLOGY AND BIOINFORMATICS(TCBB)'
+							},
+						],
+						'2022':[
+							{
+								image_target:'https://academic.oup.com/bib/article/23/2/bbab520/6511204',
+								image_src:'images/papers/2022/drugTarget-interactions.jpg',
+								paper_authors: 'Ruolan Chen, Feng Xia, Bing Hu, Shuting Jin, Xiangrong Liu',
+								paper_title: 'Drug–target interactions prediction via deep collaborative filtering with multiembeddings',
+								pdf_download:'https://academic.oup.com/bib/article-pdf/23/2/bbab520/42805206/bbab520.pdf',
+								code_download: '',
+								paper_publiation: 'Briefings in Bioinformatics'
+							},
+							{
+								image_target:'https://academic.oup.com/bib/article/23/3/bbac100/6554594',
+								image_src:'images/papers/2022/deepTTA.jpg',
+								paper_authors: 'Likun Jiang, Changzhi Jiang, Xinyu Yu, Rao Fu, Shuting Jin, Xiangrong Liu',
+								paper_title: 'DeepTTA: a transformer-based model for predicting cancer drug response',
+								pdf_download:'https://academic.oup.com/bib/article-pdf/23/3/bbac100/43745391/bbac100.pdf',
+								code_download: '',
+								paper_publiation: 'Briefings in Bioinformatics'
+							},
+							{
+								image_target:'https://academic.oup.com/bib/article/23/5/bbac277/6661182',
+								image_src:'images/papers/2022/MLysPRED.jpg',
+								paper_authors: 'Yun Zuo, Yue Hong, Xiangxiang Zeng, Qiang Zhang, Xiangrong Liu',
+								paper_title: 'MLysPRED: graph-based multi-view clustering and multi-dimensional normal distribution resampling techniques to predict multiple lysine sites',
+								pdf_download:'https://academic.oup.com/bib/article-pdf/23/5/bbac277/45938702/bbac277.pdf',
+								code_download: '',
+								paper_publiation: 'Briefings in Bioinformatics'
+							},
+							{
+								image_target:'https://academic.oup.com/bioinformatics/article/38/24/5406/6769887',
+								image_src:'images/papers/2022/lagNet.jpg',
+								paper_authors: 'Yue Hong, Pengyu Luo, Shuting Jin, Xiangrong Liu',
+								paper_title: 'LaGAT: link-aware graph attention network for drug–drug interaction prediction',
+								pdf_download:'https://academic.oup.com/bioinformatics/article-pdf/38/24/5406/47887038/btac682.pdf',
+								code_download: '',
+								paper_publiation: 'Bioinformatics'
+							},
+						]
+					}
+				},
+				components:{
+					ppt:paper_template
+				}
+			})
+		</script>
+
+
+	</body>
+</html>
